@@ -1,4 +1,4 @@
-Version 2 - Sqlite Databse
+Version 2 - Sqlite Database
 
 Run Android Project.
 
