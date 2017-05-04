@@ -1,12 +1,12 @@
 Version 1 - API Rest
 
-git clone https://github.com/yeisonvargasf/ShoppingCart-Backend
-cd ShoppingCart-Backend/
-Set ALLOWED_HOSTS with your Local Network IP in shoppingcart/settings.py
-pip3 install -r requirements.txt
-python3 manage.py runserver 0.0.0.0:8000
+Self Hosted API
+http://shopping.megaterios.co/admin/
 
-Set URL_API_HOST with your Local Network IP in co.megaterios.shoppingcarttest.service.ApiConstants
+user:tester
+password:gD%c3bPZG*UnrUD8
+
+URL HOST API: http://shopping.megaterios.co/v1/main/
 
 Run Android Project.
 
