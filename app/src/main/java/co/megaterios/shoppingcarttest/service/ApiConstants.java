@@ -6,7 +6,7 @@ package co.megaterios.shoppingcarttest.service;
 
 public class ApiConstants {
 
-    public static final String URL_API_HOST = "http://192.168.1.3:8000/";
+    public static final String URL_API_HOST = "http://shopping.megaterios.co/";
     public static final String API_VERSION = "v1";
     public static final String FORMAT = "json";
 
