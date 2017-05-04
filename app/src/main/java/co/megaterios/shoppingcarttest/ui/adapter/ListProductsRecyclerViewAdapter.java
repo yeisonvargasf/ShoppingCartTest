@@ -48,7 +48,7 @@ public class ListProductsRecyclerViewAdapter extends
 
         holder.vName.setText(boundProduct.getName());
         holder.vPrice.setText(String.valueOf(boundProduct.getPrice()));
-        holder.vStock.setText(String.valueOf(boundProduct.getStock().getQuantity()));
+        holder.vStock.setText(String.valueOf(boundProduct.getStock()));
         holder.vBuy.setOnClickListener( new View.OnClickListener() {
                                                          @Override
                                                          public void onClick(View v) {
@@ -70,7 +70,7 @@ public class ListProductsRecyclerViewAdapter extends
         notifyDataSetChanged();
     }
 
-    public int indexOf(String productId) {
+    public int indexOf(Long productId) {
         Product obj = new Product();
         obj.setId(productId);
         return this.mProducts.indexOf(obj);
@@ -83,6 +83,7 @@ public class ListProductsRecyclerViewAdapter extends
 
         return i;
     }
+
 
     public class ProductViewHolder extends RecyclerView.ViewHolder {
         protected TextView vName;
@@ -101,7 +102,7 @@ public class ListProductsRecyclerViewAdapter extends
     }
 
     public interface AdapterInteractionListener {
-        public void onBuyProduct(String productId);
+        public void onBuyProduct(Long productId);
     }
 
 

@@ -9,26 +9,15 @@ import com.orm.SugarRecord;
 
 public class Stock extends SugarRecord {
 
-    @SerializedName("my_product_id")
-    private String productId;
     private int quantity;
 
     public Stock() {
-
     }
 
-    public Stock(String productId, int quantity) {
-        this.productId = productId;
+    public Stock(int quantity) {
         this.quantity = quantity;
     }
 
-    public String getProductId() {
-        return productId;
-    }
-
-    public void setProductId(String productId) {
-        this.productId = productId;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -45,19 +34,19 @@ public class Stock extends SugarRecord {
 
         Stock stock = (Stock) o;
 
-        return getProductId().equals(stock.getProductId());
+        return getId().equals(stock.getId());
 
     }
 
     @Override
     public int hashCode() {
-        return getProductId().hashCode();
+        return getId().hashCode();
     }
 
     @Override
     public String toString() {
         return "Stock{" +
-                "product=" + productId +
+                "product=" + getId() +
                 ", quantity=" + quantity +
                 '}';
     }

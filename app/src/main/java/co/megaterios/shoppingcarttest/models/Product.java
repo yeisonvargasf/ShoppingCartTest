@@ -1,15 +1,16 @@
 package co.megaterios.shoppingcarttest.models;
 
+import com.orm.SugarRecord;
+
 /**
  * Created by yeison on 04/05/17.
  */
 
-public class Product {
+public class Product extends SugarRecord {
 
-    private String id;
     private String name;
     private Double price;
-    private Stock stock;
+    private int stock;
 
     public Product() {
     }
@@ -19,16 +20,18 @@ public class Product {
         this.price = price;
     }
 
-    public String getId() {
-        return id;
+    public Product(String name, Double price, int stock) {
+        this.name = name;
+        this.price = price;
+        this.stock = stock;
     }
 
-    public Stock getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public String getName() {

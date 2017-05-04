@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import co.megaterios.shoppingcarttest.R;
-import co.megaterios.shoppingcarttest.models.OrderProduct;
+import co.megaterios.shoppingcarttest.models.CartProduct;
 
 /**
  * Created by yeison on 04/05/17.
@@ -22,12 +22,12 @@ public class ShoppingCartRecyclerViewAdapter extends
         RecyclerView.Adapter<ShoppingCartRecyclerViewAdapter.ProductViewHolder> {
 
     private static final String TAG = "ShoppingCartRecyclerViewAdapter";
-    private ArrayList<OrderProduct> mProducts;
+    private ArrayList<CartProduct> mProducts;
     private Context context;
 
 
     public ShoppingCartRecyclerViewAdapter(Context context) {
-        this.mProducts = new ArrayList<OrderProduct>();
+        this.mProducts = new ArrayList<CartProduct>();
         this.context = context;
     }
 
@@ -43,7 +43,7 @@ public class ShoppingCartRecyclerViewAdapter extends
     @Override
     public void onBindViewHolder(final ShoppingCartRecyclerViewAdapter.ProductViewHolder holder, int position) {
 
-        final OrderProduct boundOrderProduct = this.mProducts.get(position);
+        final CartProduct boundOrderProduct = this.mProducts.get(position);
 
         holder.vName.setText(boundOrderProduct.getMyProduct().getName());
         holder.vPrice.setText(String.valueOf(boundOrderProduct.getMyProduct().getPrice()));
@@ -67,13 +67,13 @@ public class ShoppingCartRecyclerViewAdapter extends
         return this.mProducts.size();
     }
 
-    public void addAll(@NonNull ArrayList<OrderProduct> extraProducts) {
+    public void addAll(@NonNull ArrayList<CartProduct> extraProducts) {
         this.mProducts.clear();
         this.mProducts.addAll(extraProducts);
         notifyDataSetChanged();
     }
 
-    public int removeItem(OrderProduct soldOutProduct) {
+    public int removeItem(CartProduct soldOutProduct) {
         int i = this.mProducts.indexOf(soldOutProduct);
         this.mProducts.remove(soldOutProduct);
         notifyDataSetChanged();
@@ -98,6 +98,6 @@ public class ShoppingCartRecyclerViewAdapter extends
     }
 
     public interface AdapterShoppingCartInteractionListener {
-        public void onDeleteProduct(String productId);
+        public void onDeleteProduct(Long productId);
     }
 }

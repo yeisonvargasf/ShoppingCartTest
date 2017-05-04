@@ -1,22 +1,19 @@
 package co.megaterios.shoppingcarttest.models;
 
+import com.orm.SugarRecord;
+
 /**
  * Created by yeison on 04/05/17.
  */
 
-public class Customer {
+public class Customer extends SugarRecord {
 
-    private String id;
     private String name;
 
-
-    public String getId() {
-        return id;
+    public Customer(String name) {
+        this.name = name;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
