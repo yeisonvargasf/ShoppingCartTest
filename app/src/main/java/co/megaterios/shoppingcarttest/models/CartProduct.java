@@ -1,5 +1,7 @@
 package co.megaterios.shoppingcarttest.models;
 
+import android.util.Log;
+
 import com.orm.SugarRecord;
 
 import co.megaterios.shoppingcarttest.ui.activity.ListProductsActivity;
@@ -42,7 +44,7 @@ public class CartProduct extends SugarRecord {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Product)) return false;
+        if (!(o instanceof CartProduct)) return false;
 
         CartProduct cartProduct = (CartProduct) o;
 

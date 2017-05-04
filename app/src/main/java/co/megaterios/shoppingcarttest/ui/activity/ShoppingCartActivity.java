@@ -49,10 +49,10 @@ public class ShoppingCartActivity extends AppCompatActivity implements
         Cart currentOrder = Cart.findById(Cart.class, ORDER_ID);
 
         CartProduct productInOrder = null;
+
         for (CartProduct obj : currentOrder.getProducts()) {
             if (obj.getId().equals(orderProductId)) {
                 productInOrder = obj;
-                Log.d(TAG, obj.getMyProduct().getName());
                 break;
             }
         }
@@ -69,15 +69,13 @@ public class ShoppingCartActivity extends AppCompatActivity implements
         productInOrder.getMyProduct().setStock(productInOrder.getMyProduct()
                 .getStock() + 1);
 
-
-        if (productInOrder.getQuantityCurrentOrder() < 1) {
-            CartProduct.findById(CartProduct.class, productInOrder.getId()).delete();
-            this.mListShoppingCartProductsAdapter.removeItem(productInOrder);
-
-        }
-
         productInOrder.getMyProduct().save();
         productInOrder.save();
+
+        if (productInOrder.getQuantityCurrentOrder() < 1) {
+            CartProduct.delete(CartProduct.findById(CartProduct.class, productInOrder.getId()));
+            this.mListShoppingCartProductsAdapter.removeItem(productInOrder);
+        }
 
         mListShoppingCartProductsAdapter.addAll(Cart.findById(Cart.class, ORDER_ID).getProducts());
 

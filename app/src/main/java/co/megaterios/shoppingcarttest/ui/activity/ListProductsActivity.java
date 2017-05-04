@@ -115,8 +115,6 @@ public class ListProductsActivity extends AppCompatActivity implements
     public void onBuyProduct(Long productId) {
         Product currentProduct = Product.findById(Product.class, productId);
 
-        Log.d(TAG, currentProduct.getName());
-
         if (currentProduct.getStock() < 1) {
             Toast.makeText(getApplicationContext(),
                     "Error!",
@@ -125,7 +123,6 @@ public class ListProductsActivity extends AppCompatActivity implements
         }
 
         Cart currentOrder = Cart.findById(Cart.class, ORDER_ID);
-        Log.d(TAG, currentOrder.getId() + "");
 
         CartProduct productInOrder = null;
         for (CartProduct obj : currentOrder.getProducts()) {
@@ -142,11 +139,7 @@ public class ListProductsActivity extends AppCompatActivity implements
             productInOrder.setQuantityCurrentOrder(productInOrder.getQuantityCurrentOrder() + 1);
         }
 
-        Log.d(TAG, currentProduct.getStock() + "");
-
         currentProduct.setStock(currentProduct.getStock() - 1);
-
-        Log.d(TAG, currentProduct.getStock() + "");
 
         if (currentProduct.getStock() < 1) {
             this.mListProductAdapter.removeItem(currentProduct);
